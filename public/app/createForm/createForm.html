@@ -1,0 +1,84 @@
+<p>This page is to create a custom form. Enter form Name and description and choose Textboxes,RadioGroups or checkGroups
+    and fill the related fields.<br> After you submit, form properties will be stored in Database. You can check the model form in
+    " All Forms " section.
+</p>
+
+<style>
+    body{
+        margin-left: 10px;
+    }
+</style>
+
+Form Name : <input type="text" ng-model="formName" > <br><br>
+Form Description :<input type="text" ng-model="formDescription" />
+<br><br>
+
+<div style="padding: 20px;float: right;position: static">
+    Create any of the following : <br><br>
+    <button ng-click="onTextBoxClick()" > TextBox </button>&nbsp;&nbsp;
+    <button ng-click="onRadioGroupClick()" > RadioGroup </button>&nbsp;&nbsp;
+    <button ng-click="onCheckGroupClick()" > CheckboxGroup</button>
+</div>
+
+
+<div id="form">
+
+    <!--<checklist-->
+            <!--list="checkbox.valueList" display="checkbox.displayName" output="checkbox.output">-->
+
+    <!--</checklist>-->
+    <!--<br><br>-->
+    <!--<textbox obj="textBox"> </textbox>-->
+    <!--<br><br>-->
+    <!--<div ng-repeat=" element in elements">-->
+
+        <!--<span ng-if="element.fieldType == 'textBox' " >-->
+           <!--{{ element.displayName }} : <input type="text">-->
+        <!--</span>-->
+
+        <!--<span ng-if="element.fieldType == 'radioGroup' " >-->
+            <!--{{ element.displayName }} ::-->
+                <!--<span ng-repeat=" x in element.valueList" >-->
+                    <!--{{ x }} <input type="radio"  value="{{x}}" ng-model="element.displayName" >-->
+                <!--</span>-->
+        <!--</span>-->
+            <!--&lt;!&ndash;<span ng-if="element.fieldType == 'checkBox' " >&ndash;&gt;-->
+            <!--&lt;!&ndash;{{ element.displayName  }} ::&ndash;&gt;-->
+                <!--&lt;!&ndash;<span ng-repeat=" x in element.valueList" >&ndash;&gt;-->
+                    <!--&lt;!&ndash;{{ x }} <input type="checkbox"  value="{{x}}"  >&ndash;&gt;-->
+                <!--&lt;!&ndash;</span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</span>&ndash;&gt;-->
+
+         <!--<span ng-if="element.fieldType == 'checkBox' " >-->
+                <!--<checklist  display="element.displayName" list="element.valueList">-->
+
+                <!--</checklist>-->
+         <!--</span>-->
+            <!--&lt;!&ndash;<checklist ng-if="element.fieldType == 'checkBox' "&ndash;&gt;-->
+                       <!--&lt;!&ndash;list="element.valueList" displayName="element.displayName" >&ndash;&gt;-->
+                <!--&lt;!&ndash; &ndash;&gt;-->
+            <!--&lt;!&ndash;</checklist>&ndash;&gt;-->
+
+        <!--<br><br>-->
+    <!--</div>-->
+
+    <div ng-repeat="element in elements">
+            <span ng-if="element.fieldType == 'textBox' ">
+                    <textbox obj="element"> </textbox>
+            </span>
+
+             <span ng-if="element.fieldType == 'radioGroup' ">
+                    <radiogroup obj="element"> </radiogroup>
+            </span>
+
+             <span ng-if="element.fieldType == 'checkGroup' ">
+                    <checkbox obj="element"> </checkbox>
+            </span>
+    </div>
+
+</div>
+
+<br><br>
+<button ng-click="onSubmit()" >SUBMIT</button>
+
+<!--<button type="button" >submit</button>-->

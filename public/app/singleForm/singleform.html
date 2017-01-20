@@ -1,0 +1,52 @@
+Showing form {{ formData }}
+<h3> {{ formData.formName }}</h3>
+Description : <h5> {{ formData.formDescription }}</h5>
+
+<div ng-repeat="element in formData.formFields" >
+
+    <span ng-if=" element.fieldType == 'textBox' " >
+           {{ element.displayName }} :&nbsp;&nbsp; <input type="text"  placeholder="{{ element.hintText }}">
+    </span>
+
+    <span ng-if=" element.fieldType == 'radioGroup' " >
+         {{ element.displayName}} :
+        <span ng-repeat=" x in element.valueList">
+            <input name="{{element.displayName}}" type="radio" value="{{x}}" ng-model="$parent.radio"  >{{ x}} &nbsp;&nbsp;
+        </span>
+         model is  {{ radio }}
+    </span>
+
+    <span ng-if=" element.fieldType == 'checkGroup' " >
+        {{ element.displayName }} ::
+         <span ng-repeat=" x in element.valueList">
+            <input type="checkbox" value="{{x}}"  ng-model="checkboxObject[x]" >{{ x}} &nbsp;&nbsp;
+        </span>
+    </span>
+    <br><br>
+</div>
+
+{{checkboxObject}}
+
+
+<!--<div>-->
+
+    <!--<input name="color" type="radio" value="red" ng-model="radio">Red<br>-->
+    <!--<input name="color" type="radio" value="green" ng-model="radio">Green<br>-->
+    <!--<input  name="color" type="radio" value="yellow" ng-model="radio">Yello-->
+
+    <!--{{ radio }}-->
+<!--</div>-->
+
+
+<!--<div>-->
+    <!--<li ng-repeat="x in list">-->
+            <!--<input name="{{radio}}"  type="radio" value="{{x}}" id="radio" >{{x}}<br>-->
+    <!--</li>-->
+
+<!--</div>-->
+
+<label ng-repeat="role in roles">
+    <input type="checkbox" checklist-model="user.roles" checklist-value="role"> {{role}}
+</label>
+
+{{ user}}
