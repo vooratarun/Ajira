@@ -1,4 +1,4 @@
-# Ajira
+# Dynamic Forms
 This project is to create Dynamic form
 # Technologies used  :
 Back-end : Node.js Express
